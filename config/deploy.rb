@@ -4,7 +4,7 @@ require 'rvm/capistrano'
 default_run_options[:pty] = true
 
 set :use_sudo, false
-set :repository,  "git@github.com:vinsol/spreedemo.git"
+set :repository,  "git@github.com:nishant-cyro/spreedemo.git"
 set :scm, :git
 
 set :git_enable_submodules, 1
@@ -18,7 +18,7 @@ task :production do
   set :branch, "master"
   set :rvm_type, :user
   set :rails_env, 'production'
-  set :my_site, 'spreedemo.konga.com'
+  set :my_site, 'spreedemo.vinsol.com'
   set :user, "deploy"
   role :web, "176.58.124.63"                          # Your HTTP server, Apache/etc
   role :app, "176.58.124.63"                          # This may be the same as your `Web` server
@@ -29,19 +29,11 @@ ssh_options[:forward_agent] = true
 
   namespace :deploy do
 
-    desc "copy database.yml and s3.yml to config"
+    desc "copy database.yml to config"
     task :after_symlink, :except => { :no_release => true } do
       run <<-CMD
         ln -sf #{shared_path}/database.yml #{latest_release}/config/database.yml 
       CMD
-    end
-
-    desc "Zero-downtime restart of Unicorn"
-    task :restart, :except => { :no_release => true } do
-      web.disable
-      stop
-      start
-      web.enable
     end
 
     task :start do ; end
@@ -60,13 +52,7 @@ ssh_options[:forward_agent] = true
     end
     
   end
-
-  def run_rake(cmd)
-    run "cd #{current_path}; #{rake} #{cmd}"
-  end
   
-#after 'deploy:create_symlink', 'deploy:finalize_update'
-#after 'deploy:create_symlink', 'deploy:delayed_job:restart'
 after "deploy:create_symlink", "deploy:after_symlink"
 after "deploy:after_symlink", "deploy:assets_precompile"
 require './config/boot'
