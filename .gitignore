@@ -19,3 +19,4 @@
 /db/schema.rb
 /config/s3.yml
 /public/assets
+/public/spree
