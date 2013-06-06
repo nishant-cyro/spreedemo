@@ -58,6 +58,19 @@ GIT
     spree_sample (2.0.1)
       spree_core (= 2.0.1)
 
+GIT
+  remote: git://github.com/spree/spree_auth_devise.git
+  revision: b49f76056a317cc2aef6f85dfd4de5b52aa2ca56
+  branch: 2-0-stable
+  specs:
+    spree_auth_devise (2.0.0)
+      cancan (~> 1.6.7)
+      devise (~> 2.2.3)
+      devise-encryptable (= 0.1.2)
+      spree_backend (~> 2.0.0)
+      spree_core (~> 2.0.0)
+      spree_frontend (~> 2.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -109,6 +122,7 @@ GEM
       json (~> 1.4)
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
+    bcrypt-ruby (3.0.1)
     builder (3.0.4)
     cancan (1.6.8)
     capistrano (2.15.4)
@@ -131,6 +145,13 @@ GEM
     deface (0.9.1)
       nokogiri (~> 1.5.0)
       rails (~> 3.1)
+    devise (2.2.4)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (~> 3.1)
+      warden (~> 1.2.1)
+    devise-encryptable (0.1.2)
+      devise (>= 2.1.0)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -168,6 +189,7 @@ GEM
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
     nokogiri (1.5.9)
+    orm_adapter (0.4.0)
     paperclip (3.4.2)
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
@@ -241,6 +263,8 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
+    warden (1.2.1)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
@@ -253,5 +277,6 @@ DEPENDENCIES
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
   spree!
+  spree_auth_devise!
   therubyracer
   uglifier (>= 1.0.3)
