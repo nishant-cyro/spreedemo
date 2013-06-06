@@ -36,8 +36,6 @@ namespace :deploy do
       update_code
       web.disable
       create_symlink
-      after_symlink
-      precompile_assets
       migrate
     end
 
@@ -60,5 +58,8 @@ namespace :deploy do
   end
 
 end
+
+after "deploy:create_symlink", "deploy:after_symlink"
+after "deploy:after_symlink", "deploy:precompile_assets"
         require './config/boot'
 
