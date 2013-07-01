@@ -19,7 +19,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'spree', :git => 'git://github.com/spree/spree.git', :tag => 'v2.0.1'
+gem 'spree', :git => 'git://github.com/spree/spree.git', :tag => 'v2.0.3'
 
 gem 'jquery-rails'
 gem 'capistrano', '~> 2.0'
