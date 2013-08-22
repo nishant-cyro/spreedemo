@@ -20,6 +20,7 @@ group :assets do
 end
 
 gem 'spree', :git => 'git://github.com/spree/spree.git', :tag => 'v2.0.3'
+gem 'spree_shipstation', git: "git@github.com:abhishekjain16/spree_shipstation.git"
 
 gem 'jquery-rails'
 gem 'capistrano', '~> 2.0'
