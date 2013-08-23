@@ -1,0 +1,40 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie ie6" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if gt IE 9]><!--><html lang="<%= I18n.locale %>"><!--<![endif]-->
+  <head data-hook="inside_head">
+    <%= render :partial => 'spree/shared/head' %>
+  </head>
+  <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
+
+    <div class="container">
+
+      <%= render :partial => 'spree/shared/header' %>
+
+      <div id="wrapper" class="row" data-hook>
+
+        <%= breadcrumbs(@taxon) %>
+
+        <%= render :partial => 'spree/shared/sidebar' if content_for? :sidebar %>
+
+        <div id="content" class="columns <%= !content_for?(:sidebar) ? "sixteen" : "twelve" %>" data-hook>
+          <%= flash_messages %>
+          <%= yield %>
+        </div>
+
+      </div>
+
+      <%= render :partial => 'spree/shared/footer' %>
+
+    </div>
+
+    <%= render :partial => 'spree/shared/google_analytics' %>
+    <script>
+      Spree.api_key = <%= raw(try_spree_current_user.try(:spree_api_key).to_s.inspect) %>;
+    </script>
+    <script type="text/javascript" src='//s3-eu-west-1.amazonaws.com/userlike-cdn-widgets/45bc094ffe6aac2aea40d4e7ed39312183e0c378096cb2d353f11de88a5748d8.js'>
+    </script>
+  </body>
+</html>
