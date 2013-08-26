@@ -5,6 +5,9 @@
 #
 # In order to initialize a setting do:
 # config.setting_name = 'new value'
+Rails.application.config.spree.payment_methods << Spree::PaymentMethod::CashOnDelivery
+
+
 Spree.config do |config|
   config.allow_ssl_in_production=false
   # Example:
