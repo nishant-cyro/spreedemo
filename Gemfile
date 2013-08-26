@@ -25,6 +25,8 @@ gem 'spree_shipstation', git: "git@github.com:abhishekjain16/spree_shipstation.g
 gem 'jquery-rails'
 gem 'capistrano', '~> 2.0'
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '2-0-stable'
+gem 'spree_wallet', :git => 'git://github.com/vinsol/spree_wallet.git'
+gem 'spree_chimpy', :git => 'git://github.com/abhishekjain16/spree_chimpy.git'
 
 
 # To use ActiveModel has_secure_password
