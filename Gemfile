@@ -27,6 +27,7 @@ gem 'capistrano', '~> 2.0'
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '2-0-stable'
 gem 'spree_wallet', :git => 'git://github.com/vinsol/spree_wallet.git'
 gem 'spree_chimpy', :git => 'git://github.com/abhishekjain16/spree_chimpy.git'
+gem 'spree_hub_connector', :git => 'git://github.com/spree/spree_hub_connector.git', branch: '2-0-stable'
 
 
 # To use ActiveModel has_secure_password
